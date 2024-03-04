@@ -3,11 +3,11 @@ import Link from "next/link";
 import { AnimatePresence, delay, easeInOut, motion as m } from "framer-motion";
 import Image from "next/image";
 
-import { CSSProperties } from "react";
+import { CSSProperties, useState } from "react";
 
 import top from "../../public/top.png";
 import bottom from "../../public/bottom.png";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Scale } from "lucide-react";
 
 export default function Home() {
   const children = ["L", "u", "i", "s", "K", "e", "ß", "l", "e", "r"];
@@ -71,7 +71,7 @@ export default function Home() {
           </m.div>
 
           <div>
-            <m.div className="flex h-fit w-screen flex-col text-white">
+            <m.div className="relative flex h-fit w-screen flex-col text-white">
               <div className="flex h-screen w-screen flex-col">
                 <div className="montserrat flex h-[10vh] items-center justify-between px-3 md:px-10">
                   <p className="text-lg">
@@ -88,7 +88,7 @@ export default function Home() {
                     Send me a message.
                   </p>
                 </div>
-                <div className="flex h-[90vh] flex-col items-center justify-center">
+                <div className="flex h-[80vh] flex-col items-center justify-center">
                   <m.div
                     animate={{ y: ["0vh", "-19vh"], opacity: [1, 0.5] }}
                     transition={{ delay: 4.5, duration: 1, ease: easeInOut }}
@@ -104,30 +104,44 @@ export default function Home() {
                     <Image src={bottom} alt="" className="max-w-[40%]"></Image>
                   </m.div>
                 </div>
+                <div className="montserrat flex h-[10vh] items-center justify-between px-3 md:px-10">
+                  <p className=""></p> {/*Hero - Footer*/}
+                </div>
               </div>
-              <div className="h-screen bg-white"></div>
+              <m.div className="sticky top-0 flex h-screen items-center justify-center bg-white">
+                <div className="z-10 h-[50%] w-[20%] bg-black"></div>
+              </m.div>
+              <div className="h-[50vh]"></div>
+              <m.div className="z-10 flex h-fit flex-col items-center justify-center bg-red-500">
+                <div className=""></div>
+                <div className="flex h-screen w-screen items-center justify-center bg-red-500">
+                  <div className="z-10 h-[50%] w-[20%] bg-red-500"></div>
+                </div>
+                <div className="h-screen w-screen bg-white"></div>
+              </m.div>
             </m.div>
             <m.div
-              animate={{ paddingTop: ["0vh", "10vh"] }}
+              animate={{ paddingTop: ["0vh", "2.5vh"] }}
               transition={{ delay: 4, duration: 2 }}
               className="absolute left-0 top-0 z-[60] flex h-screen w-screen items-center justify-center"
             >
               <m.div
-                animate={{
-                  width: ["10%"],
-                  height: ["10%"],
-                  scaleX: [0, 1],
-                }}
+                animate={{ scaleX: [0, 1] }}
                 transition={{ delay: 2.5, duration: 1 }}
+                className="flex h-full w-full flex-col items-center justify-center"
               >
                 <m.div
-                  animate={{ scale: [0.9, 6] }}
+                  animate={{
+                    height: ["10%", "60%"],
+                    width: ["10%", "60%"],
+                    backgroundColor: ["#000", "#fff"],
+                  }}
                   transition={{
-                    times: [0.5, 1],
+                    times: [0.8, 1],
                     duration: 4,
                     delay: 2.5,
                   }}
-                  className="h-full w-full bg-red-500"
+                  className="h-full w-full"
                 ></m.div>
               </m.div>
             </m.div>
