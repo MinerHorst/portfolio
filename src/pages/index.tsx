@@ -79,9 +79,9 @@ export default function Home() {
                     <span className="playfair italic">Keßler</span>
                   </p>
                   <p className="hidden md:inline">
-                    <span>Index, </span>
-                    <span className="text-muted-foreground">Projects, </span>
+                    <span>Index, </span>{" "}
                     <span className="text-muted-foreground">About, </span>
+                    <span className="text-muted-foreground">Projects, </span>
                     <span className="text-muted-foreground">Contact</span>
                   </p>
                   <p className="hidden underline md:inline">
