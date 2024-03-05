@@ -108,8 +108,24 @@ export default function Home() {
                   <p className=""></p> {/*Hero - Footer*/}
                 </div>
               </div>
-              <m.div className="sticky top-0 flex h-screen items-center justify-center bg-white">
-                <div className="z-10 h-[50%] w-[20%] bg-black"></div>
+              <m.div className="sticky top-0 flex h-screen flex-col items-center justify-center bg-white text-black">
+                <h2 className="playfair italic [font-size:_clamp(2em,3.5vw,8em)]">
+                  About me
+                </h2>
+                <div className="flex h-full w-full items-center justify-center">
+                  <m.div
+                    whileInView={{ x: "-40vw" }}
+                    transition={{ delay: 1, duration: 1, ease: easeInOut }}
+                    className="z-10 h-[50%] w-[10%] bg-black"
+                  ></m.div>
+                  <m.div
+                    whileInView={{ x: "40vw" }}
+                    transition={{ delay: 1, duration: 1, ease: easeInOut }}
+                    className="z-10 h-[50%] w-[10%] bg-black"
+                  ></m.div>
+                </div>
+
+                <div className="absolute left-0 top-0 flex h-screen w-screen flex-col items-center justify-center"></div>
               </m.div>
               <div className="h-[50vh]"></div>
               <m.div className="z-10 flex h-fit flex-col items-center justify-center bg-red-500">
