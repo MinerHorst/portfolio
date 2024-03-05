@@ -1,9 +1,19 @@
 import Head from "next/head";
 import Link from "next/link";
-import { AnimatePresence, delay, easeInOut, motion as m } from "framer-motion";
+import {
+  AnimatePresence,
+  animate,
+  delay,
+  easeInOut,
+  motion as m,
+  progress,
+  scroll,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
 import Image from "next/image";
 
-import { CSSProperties, useState } from "react";
+import { CSSProperties, useEffect, useRef, useState } from "react";
 
 import top from "../../public/top.png";
 import bottom from "../../public/bottom.png";
@@ -11,6 +21,26 @@ import { ChevronLeft, ChevronRight, Scale } from "lucide-react";
 
 export default function Home() {
   const children = ["L", "u", "i", "s", "K", "e", "ß", "l", "e", "r"];
+
+  const aboutref = useRef(null);
+
+  const [screenWidth, setScreenWidth] = useState<number>(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setScreenWidth(window.innerWidth);
+    }
+  }, []);
+  const [yProgress, setYProgress] = useState(0);
+
+  const { scrollYProgress } = useScroll({ container: aboutref });
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    console.log("Page scroll: ", latest);
+    setYProgress(latest);
+  });
+
+  const width60Percent = screenWidth * 0.6;
 
   return (
     <>
@@ -108,7 +138,10 @@ export default function Home() {
                   <p className=""></p> {/*Hero - Footer*/}
                 </div>
               </div>
-              <m.div className="sticky top-0 flex h-screen flex-col items-center justify-center bg-white text-black">
+              <m.div
+                ref={aboutref}
+                className="sticky top-0 flex h-screen flex-col items-center justify-center bg-white text-black"
+              >
                 <h2 className="playfair italic [font-size:_clamp(2em,3.5vw,8em)]">
                   About me
                 </h2>
@@ -119,15 +152,18 @@ export default function Home() {
                     className="z-10 h-[50%] w-[10%] bg-black"
                   ></m.div>
                   <m.div
-                    whileInView={{ x: "40vw" }}
-                    transition={{ delay: 1, duration: 1, ease: easeInOut }}
-                    className="z-10 h-[50%] w-[10%] bg-black"
+                    initial={{ x: 0 }}
+                    animate={{
+                      x: yProgress * 1000,
+                    }}
+                    transition={{ ease: easeInOut }}
+                    className="z-10 h-[50%] w-[10%] bg-black text-white"
                   ></m.div>
                 </div>
 
                 <div className="absolute left-0 top-0 flex h-screen w-screen flex-col items-center justify-center"></div>
               </m.div>
-              <div className="h-[50vh]"></div>
+              <div className="h-[200vh]"></div>
               <m.div className="z-10 flex h-fit flex-col items-center justify-center bg-red-500">
                 <div className=""></div>
                 <div className="flex h-screen w-screen items-center justify-center bg-red-500">
@@ -147,6 +183,7 @@ export default function Home() {
                 className="flex h-full w-full flex-col items-center justify-center"
               >
                 <m.div
+                  initial={{ height: "10%" }}
                   animate={{
                     height: ["10%", "60%"],
                     width: ["10%", "60%"],
