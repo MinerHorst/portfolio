@@ -148,7 +148,7 @@ export default function Home() {
                 className="top-0 flex h-[120vh] flex-col items-center justify-center bg-black text-white"
               >
                 <div className="relative flex h-full w-full flex-col items-center space-y-4">
-                  <p className="sixcaps z-50 text-white opacity-50 [font-size:_clamp(2em,8vw,8em)]">
+                  <p className="sixcaps z-50 text-white [font-size:_clamp(2em,8vw,8em)]">
                     FEATURED PROJECTS
                   </p>
                   <div className="grid h-full w-full place-items-center gap-6 px-2 md:grid-cols-2 md:gap-[2rem] lg:grid-cols-4">
@@ -289,15 +289,70 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="flex h-screen w-screen flex-col justify-between bg-black px-4">
-                  <div></div>
+                <div className="flex h-screen w-screen flex-col justify-end bg-black">
+                  <div className="grid h-[40vh] grid-cols-4 px-4">
+                    <p className="col-span-1 border text-lg">
+                      <span className="poppins">Luis</span>
+                      <span className="playfair italic">Keßler</span>
+                    </p>
+                    <div className="col-span-1 h-full w-full">
+                      <ul className="poppins flex h-full w-full flex-col justify-between border text-lg">
+                        <li>Index</li>
+                        <li>About</li>
+                        <li>Projects</li>
+                        <li>Contact</li>
+                      </ul>
+                    </div>
+                    <div className="col-span-1 h-full w-full">
+                      <ul className="poppins flex h-full w-full flex-col justify-between border">
+                        <li>+49 163 0813520</li>
+                        <li className="flex flex-col">
+                          <span>For business inquieries:</span>
+                          <span>business@luiskessler.com</span>
+                        </li>
+                        <li className="flex flex-col">
+                          <span>For general inquieries:</span>
+                          <span>hi@luiskessler.com</span>
+                        </li>
+                        <li>Socials</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="h-[25vh]">
+                    <div className="margin-top:-23px w-full">
+                      <div className="mt-[23px] h-[0] bg-white"></div>
+                      <div className="mt-[22px] h-[1px] bg-white"></div>
+                      <div className="mt-[21px] h-[2px] bg-white"></div>
+                      <div className="mt-[20px] h-[3px] bg-white"></div>
+                      <div className="mt-[19px] h-[4px] bg-white"></div>
+                      <div className="mt-[18px] h-[5px] bg-white"></div>
+                      <div className="mt-[17px] h-[6px] bg-white"></div>
+                      <div className="mt-[16px] h-[7px] bg-white"></div>
+                      <div className="mt-[15px] h-[8px] bg-white"></div>
+                      <div className="mt-[14px] h-[9px] bg-white"></div>
+                      <div className="mt-[13px] h-[10px] bg-white"></div>
+                      <div className="mt-[12px] h-[11px] bg-white"></div>
+                      <div className="mt-[11px] h-[12px] bg-white"></div>
+                      <div className="mt-[10px] h-[13px] bg-white"></div>
+                      <div className="mt-[9px] h-[14px] bg-white"></div>
+                      <div className="mt-[8px] h-[15px] bg-white"></div>
+                      <div className="mt-[7px] h-[16px] bg-white"></div>
+                      <div className="mt-[6px] h-[17px] bg-white"></div>
+                      <div className="mt-[5px] h-[18px] bg-white"></div>
+                      <div className="mt-[4px] h-[19px] bg-white"></div>
+                      <div className="mt-[3px] h-[20px] bg-white"></div>
+                      <div className="mt-[2px] h-[21px] bg-white"></div>
+                      <div className="mt-[1px] h-[22px] bg-white"></div>
+                      <div className="mt-[0px]h-[23px]  bg-white"></div>
+                    </div>
+                  </div>
                 </div>
               </m.div>
             </m.div>
             <m.div
-              animate={{ paddingTop: ["0vh", "2.5vh"] }}
-              transition={{ delay: 4, duration: 2 }}
-              className="absolute left-0 top-0 z-[600] flex h-screen w-screen items-center justify-center"
+              animate={{ zIndex: [600, 60] }}
+              transition={{ delay: 5, duration: 2 }}
+              className="absolute left-0 top-0 flex h-screen w-screen items-center justify-center"
             >
               <m.div
                 animate={{ scaleX: [0, 1] }}
