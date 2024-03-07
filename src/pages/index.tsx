@@ -23,6 +23,7 @@ import { CSSProperties, useEffect, useRef, useState } from "react";
 import top from "../../public/top.png";
 import bottom from "../../public/bottom.png";
 import { ChevronLeft, ChevronRight, Scale } from "lucide-react";
+import Navbar from "~/components/Navbar";
 
 export default function Home() {
   const children = ["L", "u", "i", "s", "K", "e", "ß", "l", "e", "r"];
@@ -106,7 +107,7 @@ export default function Home() {
           </m.div>
 
           <div>
-            <m.div className="relative flex h-fit w-screen flex-col text-white">
+            <m.div className="relative flex h-fit w-screen flex-col overflow-x-hidden text-white">
               <div className="flex h-screen w-screen flex-col">
                 <div className="montserrat fixed top-0 z-[200] flex h-[10vh] w-full items-center justify-between bg-black px-3 md:px-10">
                   <p className="text-lg">
@@ -114,14 +115,15 @@ export default function Home() {
                     <span className="playfair italic">Keßler</span>
                   </p>
                   <p className="hidden md:inline">
-                    <span>Index, </span>
                     <span className="text-muted-foreground">Projects, </span>
                     <span className="text-muted-foreground">About, </span>
+                    <span className="text-muted-foreground">Specials, </span>
                     <span className="text-muted-foreground">Contact</span>
                   </p>
-                  <p className="hidden underline md:inline">
-                    Send me a message.
-                  </p>
+
+                  <div className="hidden underline md:inline">
+                    <Navbar />
+                  </div>
                 </div>
                 <div className="flex h-[80vh] flex-col items-center justify-center pt-[20vh]">
                   <m.div
@@ -145,13 +147,13 @@ export default function Home() {
               </div>
               <m.div
                 ref={aboutref}
-                className="top-0 flex h-[120vh] flex-col items-center justify-center bg-black text-white"
+                className="top-0 flex h-fit flex-col items-center justify-center border bg-black text-white"
               >
-                <div className="relative flex h-full w-full flex-col items-center space-y-4">
+                <div className="relative flex h-fit w-full flex-col items-center space-y-4">
                   <p className="sixcaps z-50 text-white [font-size:_clamp(2em,8vw,8em)]">
                     FEATURED PROJECTS
                   </p>
-                  <div className="grid h-full w-full place-items-center gap-6 px-2 md:grid-cols-2 md:gap-[2rem] lg:grid-cols-4">
+                  <div className="grid h-fit w-full place-items-center gap-6 px-2 md:grid-cols-2 md:gap-[2rem] lg:grid-cols-4">
                     <div className="col-span-1 flex h-full w-full flex-col justify-between px-2 md:hidden">
                       <Parallax
                         speed={5}
@@ -236,9 +238,12 @@ export default function Home() {
 
                 <div className="absolute left-0 top-0 flex h-screen w-screen flex-col items-center justify-center"></div>
               </m.div>
-              <m.div className="z-10 flex h-fit flex-col items-center justify-center bg-black">
-                <div className="h-screen w-screen bg-black text-white [font-size:_clamp(2em,5vw,8em)]">
+              <m.div className="z-10 flex h-fit flex-col  bg-black">
+                <div className="flex h-fit w-screen flex-col items-center bg-black pb-10 text-white [font-size:_clamp(2em,5vw,8em)]">
                   {/*content wrapper*/}
+                  <p className="sixcaps z-50 text-white [font-size:_clamp(2em,8vw,8em)]">
+                    About
+                  </p>
                   <div className="poppins hidden px-4 font-bold leading-[1rem] md:block md:leading-[2.5rem] lg:leading-[5rem]">
                     <div>
                       Hey my name is{" "}
@@ -289,36 +294,86 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="flex h-screen w-screen flex-col justify-end bg-black">
-                  <div className="grid h-[40vh] grid-cols-4 px-4">
-                    <p className="col-span-1 border text-lg">
+                <div className="h-[50vh] w-full bg-white"></div>
+                <div className="relative flex h-[50vh] w-screen justify-between bg-black px-4">
+                  <m.div
+                    whileInView={{ x: ["0%", "-101%"] }}
+                    transition={{ duration: 2 }}
+                    viewport={{ once: true }}
+                    className="absolute left-0 top-0 h-screen w-[50%] bg-white"
+                  ></m.div>
+                  <m.div
+                    whileInView={{ x: ["0%", "+100%"] }}
+                    transition={{ duration: 2 }}
+                    viewport={{ once: true }}
+                    className="absolute right-0 top-0 h-screen w-[50%] bg-white"
+                  ></m.div>
+                  <div className="space-y-4">
+                    <div className="poppins text-white [font-size:_clamp(2em,5.5vw,8em)]">
+                      Non-Profit?
+                    </div>
+                    <div className="montserrat w-[80%]">
+                      If you are a non-profit ask away and maybe I'll create you
+                      a stunning website for free. As there still needs to be
+                      time for dance I can only fit in a few non-profits per
+                      year, but that means its all free for you.
+                    </div>
+                    <li className="poppins flex flex-col underline">
+                      <span>business@luiskessler.com</span>
+                    </li>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="poppins text-white [font-size:_clamp(2em,5.5vw,8em)]">
+                      Local Store?
+                    </div>
+                    <div className="montserrat">
+                      We strive to give the small businesses a chance at getting
+                      a top notch website. Hence we are offering our services at
+                      a heavily discounted price so you can focus all your
+                      energy and ressources on delivering your quality goods.
+                    </div>
+                    <li className="poppins flex flex-col underline">
+                      <span>business@luiskessler.com</span>
+                    </li>
+                  </div>
+                </div>
+                <div className="grid h-[60vh] w-screen grid-cols-2 grid-rows-2 border bg-black">
+                  <div className="col-span-1 row-span-1 border"></div>
+                  <div className="col-span-1 row-span-1 border"></div>
+                  <div className="col-span-1 row-span-1 border"></div>
+                  <div className="col-span-1 row-span-1 border"></div>
+                </div>
+                <div className="flex h-[90vh] w-screen flex-col justify-end bg-black">
+                  <div className="grid h-[40vh] grid-cols-4 border-t p-4">
+                    <p className="col-span-1 text-lg">
                       <span className="poppins">Luis</span>
                       <span className="playfair italic">Keßler</span>
                     </p>
                     <div className="col-span-1 h-full w-full">
-                      <ul className="poppins flex h-full w-full flex-col justify-between border text-lg">
+                      <ul className="poppins flex h-full w-full flex-col justify-between text-lg">
                         <li>Index</li>
                         <li>About</li>
                         <li>Projects</li>
-                        <li>Contact</li>
+                        <li>Specials</li>
                       </ul>
                     </div>
-                    <div className="col-span-1 h-full w-full">
-                      <ul className="poppins flex h-full w-full flex-col justify-between border">
+
+                    <div className="col-span-1 col-start-4 h-full w-full">
+                      <ul className="poppins flex h-full w-full flex-col justify-between">
                         <li>+49 163 0813520</li>
                         <li className="flex flex-col">
-                          <span>For business inquieries:</span>
+                          <span>For business inquiries:</span>
                           <span>business@luiskessler.com</span>
                         </li>
                         <li className="flex flex-col">
-                          <span>For general inquieries:</span>
+                          <span>For general inquiries:</span>
                           <span>hi@luiskessler.com</span>
                         </li>
                         <li>Socials</li>
                       </ul>
                     </div>
                   </div>
-                  <div className="h-[25vh]">
+                  <div className="h-[25vh] overflow-hidden">
                     <div className="margin-top:-23px w-full">
                       <div className="mt-[23px] h-[0] bg-white"></div>
                       <div className="mt-[22px] h-[1px] bg-white"></div>
