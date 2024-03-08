@@ -35,10 +35,10 @@ export default function Navbar() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            exit={{ opacity: 0 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            whileInView={{ opacity: 1 }}
+            exit={{ y: "-100%" }}
+            initial={{ y: "-100%" }}
+            animate={{ y: 1 }}
+            whileInView={{ y: 1 }}
             transition={{ duration: 0.7 }}
             className="absolute left-0 top-0 z-[200] flex h-fit w-screen flex-col bg-black px-3 pb-4 md:px-10"
           >

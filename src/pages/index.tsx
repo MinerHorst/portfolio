@@ -24,6 +24,7 @@ import top from "../../public/top.png";
 import bottom from "../../public/bottom.png";
 import { ChevronLeft, ChevronRight, Scale } from "lucide-react";
 import Navbar from "~/components/Navbar";
+import { Checkbox } from "~/components/ui/checkbox";
 
 export default function Home() {
   const children = ["L", "u", "i", "s", "K", "e", "ß", "l", "e", "r"];
@@ -109,7 +110,7 @@ export default function Home() {
           <div>
             <m.div className="relative flex h-fit w-screen flex-col overflow-x-hidden text-white">
               <div className="flex h-screen w-screen flex-col">
-                <div className="montserrat fixed top-0 z-[200] flex h-[10vh] w-full items-center justify-between bg-black px-3 md:px-10">
+                <div className="montserrat fixed top-0 z-[200] flex h-[10vh] w-full items-center justify-between md:px-4">
                   <p className="text-lg">
                     <span className="poppins">Luis</span>
                     <span className="playfair italic">Keßler</span>
@@ -125,136 +126,44 @@ export default function Home() {
                     <Navbar />
                   </div>
                 </div>
-                <div className="flex h-[80vh] flex-col items-center justify-center pt-[20vh]">
-                  <m.div
-                    animate={{ y: ["0vh", "-25vh"], opacity: [1, 0.5] }}
-                    transition={{ delay: 4.5, duration: 1, ease: easeInOut }}
-                    className="flex w-full flex-col items-center justify-center"
-                  >
-                    <Image src={top} alt="" className="max-w-[40%]"></Image>
-                  </m.div>
-                  <m.div
-                    animate={{ y: ["0vh", "26vh"], opacity: [1, 0.5] }}
-                    transition={{ delay: 4.5, duration: 1, ease: easeInOut }}
-                    className="flex w-full flex-col items-center justify-center"
-                  >
-                    <Image src={bottom} alt="" className="max-w-[40%]"></Image>
-                  </m.div>
-                </div>
-                <div className="montserrat flex h-[10vh] items-center justify-between px-3 md:px-10">
-                  <p className=""></p> {/*Hero - Footer*/}
-                </div>
               </div>
               <m.div
                 ref={aboutref}
-                className="top-0 flex h-fit flex-col items-center justify-center border bg-black text-white"
+                className="top-0 flex h-fit flex-col items-center justify-center bg-black text-white"
               >
-                <div className="relative flex h-fit w-full flex-col items-center space-y-4">
-                  <p className="sixcaps z-50 text-white [font-size:_clamp(2em,8vw,8em)]">
+                <div className="relative flex h-fit w-full flex-col items-center">
+                  <p className="sixcaps z-50 p-4 leading-none text-white [font-size:_clamp(2em,8vw,8em)]">
                     FEATURED PROJECTS
                   </p>
-                  <div className="grid h-fit w-full place-items-center gap-6 px-2 md:grid-cols-2 md:gap-[2rem] lg:grid-cols-4">
-                    <div className="col-span-1 flex h-full w-full flex-col justify-between px-2 md:hidden">
-                      <Parallax
-                        speed={5}
-                        className="flex h-full flex-col justify-between space-y-2"
-                      >
-                        <div className="h-[50%]">
-                          <div className="h-full w-full bg-white"></div>
-                        </div>
-                        <div className="h-[50%]">
-                          <div className="h-full w-full bg-white"></div>
-                        </div>
-                      </Parallax>
+                  <div className="grid h-[75vh] w-full grid-rows-4">
+                    <div className="row-span-1 space-y-2 border-y p-4 text-white">
+                      <h2 className="poppins">Inquirable</h2>
                     </div>
-                    <div className="md col-span-1 flex w-full flex-col justify-between md:hidden md:h-[60vh] lg:h-screen">
-                      <Parallax
-                        speed={5}
-                        className="flex h-full flex-col justify-between space-y-2"
-                      >
-                        <div className="h-[50%]">
-                          <div className="h-full w-full bg-white"></div>
-                        </div>
-                        <div className="h-[50%]">
-                          <div className="h-full w-full bg-white"></div>
-                        </div>
-                      </Parallax>
-                    </div>
-                    <div className="ol-span-1 md hidden w-full flex-col justify-between md:flex md:h-[60vh] lg:h-screen">
-                      <Parallax
-                        speed={5}
-                        className="flex h-full flex-col justify-between space-y-2"
-                      >
-                        <div className="h-[50%]">
-                          <div className="h-full w-full bg-white"></div>
-                        </div>
-                        {/*<div className="h-[50%]">
-                          <div className="h-full w-full bg-white"></div>
-                </div>*/}
-                      </Parallax>
-                    </div>
-                    <div className="hidden w-full flex-col justify-between  md:h-[60vh] lg:flex lg:h-screen">
-                      <Parallax
-                        speed={-5}
-                        className="relative flex h-full w-full flex-col justify-between space-y-2"
-                      >
-                        <div className="h-[50%]">
-                          <div className="h-full w-full bg-white"></div>
-                        </div>
-
-                        {/*<div className="h-[50%]">
-                          <div className="h-full w-full bg-white"></div>
-                </div>*/}
-                      </Parallax>
-                    </div>
-                    <div className="md col-span-1 hidden h-[20vh] w-full md:h-[60vh] lg:inline lg:h-screen">
-                      <Parallax
-                        speed={5}
-                        className="flex h-full flex-col space-y-2"
-                      >
-                        <div className="h-[50%]">
-                          <div className="h-full w-full bg-white"></div>
-                        </div>
-                        {/*<div className="h-[50%]">
-                          <div className="h-full w-full bg-white"></div>
-                </div>*/}
-                      </Parallax>
-                    </div>
-                    <div className="md col-span-1 hidden h-[20vh] w-full md:inline md:h-[60vh] lg:h-screen">
-                      <Parallax
-                        speed={-5}
-                        className="flex h-full flex-col justify-between space-y-2"
-                      >
-                        <div className="h-[50%]">
-                          <div className="h-full w-full bg-white"></div>
-                        </div>
-                        {/*<div className="h-[50%]">
-                          <div className="h-full w-full bg-white"></div>
-                </div>*/}
-                      </Parallax>
-                    </div>
+                    <div className="row-span-1 border-b"></div>
+                    <div className="row-span-1 border-b"></div>
+                    <div className="row-span-1 border-b"></div>
                   </div>
                 </div>
 
                 <div className="absolute left-0 top-0 flex h-screen w-screen flex-col items-center justify-center"></div>
               </m.div>
               <m.div className="z-10 flex h-fit flex-col  bg-black">
-                <div className="flex h-fit w-screen flex-col items-center bg-black pb-10 text-white [font-size:_clamp(2em,5vw,8em)]">
+                <div className="text-muted-foreground flex h-fit w-screen flex-col items-center bg-black pb-10 [font-size:_clamp(2em,5vw,8em)]">
                   {/*content wrapper*/}
-                  <p className="sixcaps z-50 text-white [font-size:_clamp(2em,8vw,8em)]">
-                    About
+                  <p className="sixcaps z-50 inline-flex w-full px-4 text-start text-white [font-size:_clamp(2em,8vw,8em)]">
+                    about
                   </p>
-                  <div className="poppins hidden px-4 font-bold leading-[1rem] md:block md:leading-[2.5rem] lg:leading-[5rem]">
+                  <div className="poppins hidden px-4 font-light leading-[1rem] md:block md:leading-[2.5rem] lg:leading-[5rem]">
                     <div>
                       Hey my name is{" "}
-                      <span className="underline decoration-red-500 decoration-2 underline-offset-4">
+                      <span className="text-white underline decoration-red-500 decoration-2 underline-offset-4">
                         <a href="/about">Luis</a>
                       </span>
                       ,
                     </div>
                     <div>
                       I&apos;m a Web Developer{" "}
-                      <span className="underline decoration-red-500 decoration-2 underline-offset-4 hover:cursor-pointer">
+                      <span className="text-white underline decoration-red-500 decoration-2 underline-offset-4 hover:cursor-pointer">
                         <a href="/#contact">ready for hire</a>
                       </span>
                       ,
@@ -264,17 +173,17 @@ export default function Home() {
                     </div>
                     <div>
                       I create visually appealing and functional{" "}
-                      <span className="underline decoration-red-500 decoration-2 underline-offset-4 hover:cursor-pointer">
+                      <span className="text-white underline decoration-red-500 decoration-2 underline-offset-4 hover:cursor-pointer">
                         <a href="/work">websites</a>
                       </span>{" "}
                       that meet your unique needs.
                     </div>
                     <div className="text-black">What brings you here?</div>
-                    <div className="underline decoration-red-500 decoration-2 underline-offset-4 hover:cursor-pointer">
+                    <div className="text-white underline decoration-red-500 decoration-2 underline-offset-4 hover:cursor-pointer">
                       <a href="/#contact">Let's Talk</a>
                     </div>
                   </div>
-                  <div className="poppins px-4 font-bold md:hidden">
+                  <div className="poppins px-4 font-normal md:hidden">
                     Hey my name is{" "}
                     <span className="underline decoration-red-500 decoration-2 underline-offset-4">
                       <a href="/about">Luis</a>,
@@ -294,9 +203,8 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="h-[50vh] w-full bg-white"></div>
-                <div className="relative flex h-[50vh] w-screen justify-between bg-black px-4">
-                  <m.div
+                <div className="relative flex h-screen w-screen flex-col items-center justify-center space-y-4 bg-black px-4">
+                  {/*<m.div
                     whileInView={{ x: ["0%", "-101%"] }}
                     transition={{ duration: 2 }}
                     viewport={{ once: true }}
@@ -307,41 +215,155 @@ export default function Home() {
                     transition={{ duration: 2 }}
                     viewport={{ once: true }}
                     className="absolute right-0 top-0 h-screen w-[50%] bg-white"
-                  ></m.div>
-                  <div className="space-y-4">
-                    <div className="poppins text-white [font-size:_clamp(2em,5.5vw,8em)]">
-                      Non-Profit?
+              ></m.div>*/}
+                  <h2 className="sixcaps text-muted-foreground z-50 inline-flex w-full text-start leading-none [font-size:_clamp(2em,8vw,8em)]">
+                    ONE LAST QUESTION
+                  </h2>
+                  <div className="flex">
+                    <div className="space-y-4">
+                      <div className="poppins text-white [font-size:_clamp(2em,5.5vw,8em)]">
+                        Non-Profit?
+                      </div>
+                      <div className="montserrat text-muted-foreground w-[80%]">
+                        If you are a non-profit ask away and maybe I'll create
+                        you a stunning{" "}
+                        <span className="text-white decoration-2 underline-offset-4">
+                          website for free
+                        </span>
+                        . As there still needs to be time for dance I can only
+                        fit in a few non-profits per year, but that means its
+                        all free for you.
+                      </div>
+                      <li className="poppins flex flex-col underline">
+                        <span>business@luiskessler.com</span>
+                      </li>
                     </div>
-                    <div className="montserrat w-[80%]">
-                      If you are a non-profit ask away and maybe I'll create you
-                      a stunning website for free. As there still needs to be
-                      time for dance I can only fit in a few non-profits per
-                      year, but that means its all free for you.
+                    <div className="space-y-4">
+                      <div className="poppins text-white [font-size:_clamp(2em,5.5vw,8em)]">
+                        Local Store?
+                      </div>
+                      <div className="montserrat text-muted-foreground ">
+                        I strive to give the small businesses a chance at
+                        getting a top notch website. Hence I am offering my
+                        service at a{" "}
+                        <span className="text-white decoration-2 underline-offset-4">
+                          heavily discounted price
+                        </span>{" "}
+                        so you can focus all your energy and ressources on
+                        delivering your quality goods.
+                      </div>
+                      <li className="poppins flex flex-col underline">
+                        <span>business@luiskessler.com</span>
+                      </li>
                     </div>
-                    <li className="poppins flex flex-col underline">
-                      <span>business@luiskessler.com</span>
-                    </li>
-                  </div>
-                  <div className="space-y-4">
-                    <div className="poppins text-white [font-size:_clamp(2em,5.5vw,8em)]">
-                      Local Store?
-                    </div>
-                    <div className="montserrat">
-                      We strive to give the small businesses a chance at getting
-                      a top notch website. Hence we are offering our services at
-                      a heavily discounted price so you can focus all your
-                      energy and ressources on delivering your quality goods.
-                    </div>
-                    <li className="poppins flex flex-col underline">
-                      <span>business@luiskessler.com</span>
-                    </li>
                   </div>
                 </div>
-                <div className="grid h-[60vh] w-screen grid-cols-2 grid-rows-2 border bg-black">
-                  <div className="col-span-1 row-span-1 border"></div>
-                  <div className="col-span-1 row-span-1 border"></div>
-                  <div className="col-span-1 row-span-1 border"></div>
-                  <div className="col-span-1 row-span-1 border"></div>
+                <div className="grid h-fit w-screen bg-black text-white">
+                  <div className="flex h-fit flex-col justify-between space-y-4 px-4">
+                    <p className="sixcaps w-full leading-none [font-size:_clamp(2em,8vw,8em)]">
+                      CONTACT
+                    </p>
+                    <form className="poppins flex h-fit flex-col gap-3 space-y-10">
+                      <h2>My contact details and some info about my project</h2>
+
+                      <div className="flex w-full gap-4">
+                        <div className="flex w-full flex-col justify-between">
+                          <input
+                            className="border-b bg-transparent outline-none ring-transparent"
+                            id="name"
+                            placeholder="Full Name"
+                          />
+                        </div>
+                        <div className="flex w-full flex-col justify-between">
+                          <input
+                            className="border-b bg-transparent outline-none ring-transparent"
+                            type="email"
+                            id="email"
+                            placeholder="Email Address"
+                          />
+                        </div>
+                        <div className="flex w-full flex-col justify-between">
+                          <input
+                            className="border-b bg-transparent outline-none ring-transparent"
+                            type="tel"
+                            id="phone"
+                            placeholder="Phone Number"
+                          />
+                        </div>
+                        <div className="flex w-full flex-col justify-between">
+                          <input
+                            className="border-b bg-transparent outline-none ring-transparent"
+                            id="company"
+                            placeholder="Company Name"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex w-full flex-col justify-between">
+                        <input
+                          className="border-b bg-transparent outline-none ring-transparent"
+                          id="projectinfo"
+                          placeholder="Tell us something about your project."
+                        />
+                      </div>
+
+                      <div className="flex flex-col gap-4">
+                        <p>My budget is around</p>
+                        <div className="flex justify-between">
+                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                            {"<"}1K€
+                          </button>
+                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                            1K-2K€
+                          </button>
+                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                            2K-5K€
+                          </button>
+                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                            5K-10K€
+                          </button>
+                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                            Not sure
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col gap-4">
+                        <p>I found you trough</p>
+                        <div className="flex justify-between">
+                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                            Recommendation
+                          </button>
+                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                            Google
+                          </button>
+                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                            Awwwards
+                          </button>
+                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                            Instagram
+                          </button>
+                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                            LinkedIn
+                          </button>
+                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                            Other
+                          </button>
+                        </div>
+                      </div>
+                      <div className="flex h-[10vh] items-center gap-4">
+                        <Checkbox id="terms" />
+                        <label
+                          htmlFor="terms"
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        >
+                          Accept terms and conditions
+                        </label>
+                        <button className="h-[3rem] w-[6.5rem] rounded-md border bg-white text-black">
+                          Submit
+                        </button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
                 <div className="flex h-[90vh] w-screen flex-col justify-end bg-black">
                   <div className="grid h-[40vh] grid-cols-4 border-t p-4">
