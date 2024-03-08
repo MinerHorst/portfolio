@@ -111,20 +111,7 @@ export default function Home() {
             <m.div className="relative flex h-fit w-screen flex-col overflow-x-hidden text-white">
               <div className="flex h-screen w-screen flex-col">
                 <div className="montserrat fixed top-0 z-[200] flex h-[10vh] w-full items-center justify-between md:px-4">
-                  <p className="text-lg">
-                    <span className="poppins">Luis</span>
-                    <span className="playfair italic">Keßler</span>
-                  </p>
-                  <p className="hidden md:inline">
-                    <span className="text-muted-foreground">Projects, </span>
-                    <span className="text-muted-foreground">About, </span>
-                    <span className="text-muted-foreground">Specials, </span>
-                    <span className="text-muted-foreground">Contact</span>
-                  </p>
-
-                  <div className="hidden underline md:inline">
-                    <Navbar />
-                  </div>
+                  <Navbar />
                 </div>
               </div>
               <m.div
@@ -148,7 +135,7 @@ export default function Home() {
                 <div className="absolute left-0 top-0 flex h-screen w-screen flex-col items-center justify-center"></div>
               </m.div>
               <m.div className="z-10 flex h-fit flex-col  bg-black">
-                <div className="text-muted-foreground flex h-fit w-screen flex-col items-center bg-black pb-10 [font-size:_clamp(2em,5vw,8em)]">
+                <div className="flex h-fit w-screen flex-col items-center bg-black pb-10 text-muted-foreground [font-size:_clamp(2em,5vw,8em)]">
                   {/*content wrapper*/}
                   <p className="sixcaps z-50 inline-flex w-full px-4 text-start text-white [font-size:_clamp(2em,8vw,8em)]">
                     about
@@ -216,7 +203,7 @@ export default function Home() {
                     viewport={{ once: true }}
                     className="absolute right-0 top-0 h-screen w-[50%] bg-white"
               ></m.div>*/}
-                  <h2 className="sixcaps text-muted-foreground z-50 inline-flex w-full text-start leading-none [font-size:_clamp(2em,8vw,8em)]">
+                  <h2 className="sixcaps z-50 inline-flex w-full text-start leading-none text-muted-foreground [font-size:_clamp(2em,8vw,8em)]">
                     ONE LAST QUESTION
                   </h2>
                   <div className="flex">
@@ -224,7 +211,7 @@ export default function Home() {
                       <div className="poppins text-white [font-size:_clamp(2em,5.5vw,8em)]">
                         Non-Profit?
                       </div>
-                      <div className="montserrat text-muted-foreground w-[80%]">
+                      <div className="montserrat w-[80%] text-muted-foreground">
                         If you are a non-profit ask away and maybe I'll create
                         you a stunning{" "}
                         <span className="text-white decoration-2 underline-offset-4">
@@ -350,22 +337,34 @@ export default function Home() {
                           </button>
                         </div>
                       </div>
-                      <div className="flex h-[10vh] items-center gap-4">
-                        <Checkbox id="terms" />
-                        <label
-                          htmlFor="terms"
-                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                          Accept terms and conditions
-                        </label>
-                        <button className="h-[3rem] w-[6.5rem] rounded-md border bg-white text-black">
-                          Submit
-                        </button>
+                      <div className="items-justify flex h-fit gap-4">
+                        <div className="flex flex-col gap-4">
+                          <p>
+                            Alternatively contact{" "}
+                            <a href="mailto:business@luiskessler.com">
+                              business@luiskessler.com
+                            </a>
+                          </p>
+                          <div className="flex gap-4">
+                            <Checkbox id="terms" />
+                            <label
+                              htmlFor="terms"
+                              className="text-sm font-medium leading-none underline peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            >
+                              <a href="/terms">Accept terms and conditions</a>
+                            </label>
+                          </div>
+                        </div>
+                        <div className="">
+                          <button className="h-full w-[7rem] rounded-md border bg-white text-black">
+                            Submit
+                          </button>
+                        </div>
                       </div>
                     </form>
                   </div>
                 </div>
-                <div className="flex h-[90vh] w-screen flex-col justify-end bg-black">
+                <div className="flex h-screen w-screen flex-col justify-end bg-black">
                   <div className="grid h-[40vh] grid-cols-4 border-t p-4">
                     <p className="col-span-1 text-lg">
                       <span className="poppins">Luis</span>
@@ -385,13 +384,19 @@ export default function Home() {
                         <li>+49 163 0813520</li>
                         <li className="flex flex-col">
                           <span>For business inquiries:</span>
-                          <span>business@luiskessler.com</span>
+                          <a href="mailto:business@luiskessler.com">
+                            business@luiskessler.com
+                          </a>
                         </li>
                         <li className="flex flex-col">
                           <span>For general inquiries:</span>
-                          <span>hi@luiskessler.com</span>
+                          <a href="mailto:hi@luiskessler.com">
+                            hi@luiskessler.com
+                          </a>
                         </li>
-                        <li>Socials</li>
+                        <li>
+                          <a href="https://linktr.ee/luiskessler">Linktree</a>
+                        </li>
                       </ul>
                     </div>
                   </div>

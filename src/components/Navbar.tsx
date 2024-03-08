@@ -34,14 +34,7 @@ export default function Navbar() {
     <>
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
-            exit={{ y: "-100%" }}
-            initial={{ y: "-100%" }}
-            animate={{ y: 1 }}
-            whileInView={{ y: 1 }}
-            transition={{ duration: 0.7 }}
-            className="absolute left-0 top-0 z-[200] flex h-fit w-screen flex-col bg-black px-3 pb-4 md:px-10"
-          >
+          <motion.div className="absolute left-0 top-0 z-[200] flex h-fit w-screen flex-col px-4 pb-4">
             <div className="flex h-[10vh] items-center justify-between">
               <p className="text-lg">
                 <span className="poppins">Luis</span>
@@ -54,7 +47,7 @@ export default function Navbar() {
                 <span className="text-muted-foreground">Contact</span>
               </p>
 
-              <div className="hidden underline md:inline">
+              <div className="">
                 <nav className="bg-black text-white">
                   <button onClick={handleMenuClick}>
                     <span className="hidden underline sm:inline">Menu</span>
@@ -73,7 +66,14 @@ export default function Navbar() {
               </div>
             </div>
 
-            <div className="row-span-1 grid grid-cols-4">
+            <motion.div
+              exit={{ y: "-200%" }}
+              initial={{ y: "-200%" }}
+              animate={{ y: 0 }}
+              whileInView={{ y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="row-span-1 grid grid-cols-4 "
+            >
               <div className="col-span-1 flex flex-col">
                 <h2 className="font-light underline">Navigation</h2>
                 <ul>
@@ -143,25 +143,42 @@ export default function Navbar() {
                   </motion.li>
                 </ul>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <nav className="bg-black text-white">
-        <button onClick={handleMenuClick}>
-          <span className="hidden sm:inline">Menu</span>
+      <nav className="absolute left-0 top-0 z-[200] flex h-fit w-screen flex-col px-4 pb-4">
+        <div className="flex h-[10vh] items-center justify-between">
+          <p className="text-lg">
+            <span className="poppins">Luis</span>
+            <span className="playfair italic">Keßler</span>
+          </p>
+          <p className="hidden md:inline">
+            <span className="text-muted-foreground">Projects, </span>
+            <span className="text-muted-foreground">About, </span>
+            <span className="text-muted-foreground">Specials, </span>
+            <span className="text-muted-foreground">Contact</span>
+          </p>
 
-          <motion.div
-            animate={controls}
-            initial={{ rotate: 0 }}
-            transition={{ duration: 0.5 }}
-            style={{ display: "inline-block", marginLeft: "5px" }}
-            className="font-light"
-          >
-            +
-          </motion.div>
-        </button>
+          <div className="">
+            <nav className="bg-black text-white">
+              <button onClick={handleMenuClick}>
+                <span className="">Menu</span>
+
+                <motion.div
+                  animate={controls}
+                  initial={{ rotate: 0 }}
+                  transition={{ duration: 0.5 }}
+                  style={{ display: "inline-block", marginLeft: "5px" }}
+                  className="font-light"
+                >
+                  +
+                </motion.div>
+              </button>
+            </nav>
+          </div>
+        </div>
       </nav>
     </>
   );
