@@ -27,6 +27,14 @@ import Navbar from "~/components/Navbar";
 import { Checkbox } from "~/components/ui/checkbox";
 
 export default function Home() {
+  const [selectedPrice, setSelectedPrice] = useState("");
+  const [selectedRecommendation, setSelectedRecommendation] = useState("");
+
+  function handleContactSubmit(e: any) {
+    e.preventDefault();
+    console.log("submitted");
+  }
+
   const children = ["L", "u", "i", "s", "K", "e", "ß", "l", "e", "r"];
 
   const aboutref = useRef(null);
@@ -42,10 +50,12 @@ export default function Home() {
 
   const { scrollYProgress } = useScroll();
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  {
+    /*useMotionValueEvent(scrollYProgress, "change", (latest) => {
     console.log("Page scroll: ", latest);
     setYProgress(latest);
-  });
+  });*/
+  }
 
   const width60Percent = screenWidth * 0.6;
 
@@ -250,7 +260,10 @@ export default function Home() {
                     <p className="sixcaps w-full leading-none [font-size:_clamp(2em,8vw,8em)]">
                       CONTACT
                     </p>
-                    <form className="poppins flex h-fit flex-col gap-3 space-y-10">
+                    <form
+                      onSubmit={(e) => handleContactSubmit(e)}
+                      className="poppins flex h-fit flex-col gap-3 space-y-10"
+                    >
                       <h2>My contact details and some info about my project</h2>
 
                       <div className="flex w-full gap-4">
@@ -296,19 +309,39 @@ export default function Home() {
                       <div className="flex flex-col gap-4">
                         <p>My budget is around</p>
                         <div className="flex justify-between">
-                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                          <button
+                            type="button"
+                            onClick={(e) => setSelectedPrice("<1K")}
+                            className="h-[3rem] w-fit rounded-full border px-8 focus:bg-white focus:text-black"
+                          >
                             {"<"}1K€
                           </button>
-                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                          <button
+                            type="button"
+                            onClick={(e) => setSelectedPrice("1K-2K€")}
+                            className="h-[3rem] w-fit rounded-full border px-8 focus:bg-white focus:text-black"
+                          >
                             1K-2K€
                           </button>
-                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                          <button
+                            type="button"
+                            onClick={(e) => setSelectedPrice("2K-2K€")}
+                            className="h-[3rem] w-fit rounded-full border px-8 focus:bg-white focus:text-black"
+                          >
                             2K-5K€
                           </button>
-                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                          <button
+                            type="button"
+                            onClick={(e) => setSelectedPrice("5K-10K€")}
+                            className="h-[3rem] w-fit rounded-full border px-8 focus:bg-white focus:text-black"
+                          >
                             5K-10K€
                           </button>
-                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                          <button
+                            type="button"
+                            onClick={(e) => setSelectedPrice("Unsure")}
+                            className="h-[3rem] w-fit rounded-full border px-8 focus:bg-white focus:text-black"
+                          >
                             Not sure
                           </button>
                         </div>
@@ -317,22 +350,52 @@ export default function Home() {
                       <div className="flex flex-col gap-4">
                         <p>I found you trough</p>
                         <div className="flex justify-between">
-                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                          <button
+                            type="button"
+                            onClick={(e) =>
+                              setSelectedRecommendation("Recommendation")
+                            }
+                            className="h-[3rem] w-fit rounded-full border px-8 focus:bg-white focus:text-black"
+                          >
                             Recommendation
                           </button>
-                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                          <button
+                            type="button"
+                            onClick={(e) => setSelectedRecommendation("Google")}
+                            className="h-[3rem] w-fit rounded-full border px-8 focus:bg-white focus:text-black"
+                          >
                             Google
                           </button>
-                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                          <button
+                            type="button"
+                            onClick={(e) =>
+                              setSelectedRecommendation("Awwwards")
+                            }
+                            className="h-[3rem] w-fit rounded-full border px-8 focus:bg-white focus:text-black"
+                          >
                             Awwwards
                           </button>
-                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                          <button
+                            type="button"
+                            onClick={(e) =>
+                              setSelectedRecommendation("Instagram")
+                            }
+                            className="h-[3rem] w-fit rounded-full border px-8 focus:bg-white focus:text-black"
+                          >
                             Instagram
                           </button>
-                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                          <button
+                            type="button"
+                            onClick={(e) => setSelectedRecommendation("Google")}
+                            className="h-[3rem] w-fit rounded-full border px-8 focus:bg-white focus:text-black"
+                          >
                             LinkedIn
                           </button>
-                          <button className="h-[3rem] w-fit rounded-full border px-8">
+                          <button
+                            type="button"
+                            onClick={(e) => setSelectedRecommendation("Other")}
+                            className="h-[3rem] w-fit rounded-full border px-8 focus:bg-white focus:text-black"
+                          >
                             Other
                           </button>
                         </div>
@@ -356,7 +419,10 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="">
-                          <button className="h-full w-[7rem] rounded-md border bg-white text-black">
+                          <button
+                            type="submit"
+                            className="h-full w-[7rem] rounded-md border bg-white text-black"
+                          >
                             Submit
                           </button>
                         </div>
