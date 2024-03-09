@@ -48,7 +48,7 @@ export default function Navbar() {
               </p>
 
               <div className="">
-                <nav className="bg-black text-white">
+                <nav className="text-white">
                   <button onClick={handleMenuClick}>
                     <span className="hidden underline sm:inline">Menu</span>
 
@@ -148,7 +148,7 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
-      <nav className="absolute left-0 top-0 z-[200] flex h-fit w-screen flex-col px-4 pb-4">
+      <nav className="absolute left-0 top-0 z-[200] flex h-fit w-screen flex-col px-4">
         <div className="flex h-[10vh] items-center justify-between">
           <p className="text-lg">
             <span className="poppins">Luis</span>
@@ -162,7 +162,7 @@ export default function Navbar() {
           </p>
 
           <div className="">
-            <nav className="bg-black text-white">
+            <nav className="text-white">
               <button onClick={handleMenuClick}>
                 <span className="">Menu</span>
 
