@@ -12,6 +12,8 @@ import FillerComponent from "~/components/filler";
 import FooterComponent from "~/components/footer";
 import ContactComponent from "~/components/contact";
 import SpecialOffersComponent from "~/components/specials";
+import ProjectTitle from "~/components/projecttitle";
+import ServiceComponent from "~/components/services";
 
 export default function Home() {
   const aboutref = useRef(null);
@@ -45,10 +47,12 @@ export default function Home() {
             <m.div className="h-full w-screen text-white">
               <AboutComponent />
               <div className="sticky top-0 z-[50]">
-                <ProjectComponent />
+                <ProjectTitle />
               </div>
-              <div className="h-[250vh] bg-red-500"></div>
+              <ProjectComponent />
+
               <div className="z-[100]">
+                <ServiceComponent />
                 <SpecialOffersComponent />
                 <ContactComponent />
                 <FooterComponent />

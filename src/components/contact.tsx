@@ -20,7 +20,7 @@ export default function ContactComponent() {
           onSubmit={(e) => handleContactSubmit(e)}
           className="poppins flex h-fit flex-col gap-3 space-y-10"
         >
-          <h2>My contact details and some info about my project</h2>
+          <h2>Your contact details and some info about your project</h2>
 
           <div className="flex w-full gap-4">
             <div className="flex w-full flex-col justify-between">
