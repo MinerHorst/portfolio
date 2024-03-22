@@ -36,7 +36,7 @@ export default function Navbar() {
         {isMenuOpen && (
           <motion.div className="absolute left-0 top-0 z-[200] flex h-fit w-screen flex-col px-4 pb-4">
             <div className="flex h-[10vh] items-center justify-between">
-              <p className="text-lg">
+              <p className="bg-black px-2 text-lg">
                 <span className="poppins">Luis</span>
                 <span className="playfair italic">Keßler</span>
               </p>
@@ -150,34 +150,41 @@ export default function Navbar() {
 
       <nav className="absolute left-0 top-0 z-[200] flex h-fit w-screen flex-col px-4">
         <div className="flex h-[10vh] items-center justify-between">
-          <p className="text-lg">
+          <p
+            className="rounded-full bg-black p-2 px-3 text-lg"
+            style={{ boxShadow: "0 0 20px 15px rgba(0, 0, 0, 1)" }}
+          >
             <span className="poppins">Luis</span>
             <span className="playfair italic">Keßler</span>
           </p>
-          <p className="hidden md:inline">
+          <p
+            className="hidden bg-black md:inline"
+            style={{ boxShadow: "0 0 20px 15px rgba(0, 0, 0, 1)" }}
+          >
             <span className="text-muted-foreground">Projects, </span>
             <span className="text-muted-foreground">About, </span>
             <span className="text-muted-foreground">Specials, </span>
             <span className="text-muted-foreground">Contact</span>
           </p>
 
-          <div className="">
-            <nav className="text-white">
-              <button onClick={handleMenuClick}>
-                <span className="">Menu</span>
+          <nav
+            className="bg-black text-white"
+            style={{ boxShadow: "0 0 20px 15px rgba(0, 0, 0, 1)" }}
+          >
+            <button onClick={handleMenuClick}>
+              <span className="">Menu</span>
 
-                <motion.div
-                  animate={controls}
-                  initial={{ rotate: 0 }}
-                  transition={{ duration: 0.5 }}
-                  style={{ display: "inline-block", marginLeft: "5px" }}
-                  className="font-light"
-                >
-                  +
-                </motion.div>
-              </button>
-            </nav>
-          </div>
+              <motion.div
+                animate={controls}
+                initial={{ rotate: 0 }}
+                transition={{ duration: 0.5 }}
+                style={{ display: "inline-block", marginLeft: "5px" }}
+                className="font-light"
+              >
+                +
+              </motion.div>
+            </button>
+          </nav>
         </div>
       </nav>
     </>
