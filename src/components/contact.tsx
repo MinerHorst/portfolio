@@ -1,15 +1,48 @@
 import React, { useState, FormEvent } from "react";
 import { Checkbox } from "./ui/checkbox";
+import { sendEmail } from "~/utils/sendEmail";
 
 export default function ContactComponent() {
   const [selectedPrice, setSelectedPrice] = useState("");
   const [selectedRecommendation, setSelectedRecommendation] = useState("");
 
-  function handleContactSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    console.log("submitted");
-  }
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    projectInfo: "",
+    pricing: "",
+  });
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleContactSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    console.log(
+      formData.name,
+      formData.email,
+      formData.company,
+      formData.phone,
+      formData.projectInfo,
+      selectedPrice,
+    );
+    e.preventDefault();
+    try {
+      await sendEmail({
+        to: "lupe_one@icloud.com", // Replace with recipient email address
+        subject: "Contact Form Submission",
+        text: `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCompany: ${formData.company}\nProject Info: ${formData.projectInfo}\nPricing: ${selectedPrice}`,
+      });
+      console.log("Email sent successfully");
+      // Add any additional logic after email is successfully sent
+    } catch (error) {
+      console.error("Error sending email:", error);
+      // Handle error
+    }
+  };
   return (
     <div className="relative z-[100] grid h-fit w-screen bg-black text-white">
       <div className="flex h-fit flex-col justify-between space-y-4 px-4">
@@ -17,7 +50,7 @@ export default function ContactComponent() {
           CONTACT
         </p>
         <form
-          onSubmit={(e) => handleContactSubmit(e)}
+          onSubmit={handleContactSubmit}
           className="poppins flex h-fit flex-col gap-3 space-y-10"
         >
           <h2>Your contact details and some info about your project</h2>
@@ -27,6 +60,9 @@ export default function ContactComponent() {
               <input
                 className="border-b bg-transparent outline-none ring-transparent"
                 id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 placeholder="Full Name"
               />
             </div>
@@ -35,6 +71,9 @@ export default function ContactComponent() {
                 className="border-b bg-transparent outline-none ring-transparent"
                 type="email"
                 id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Email Address"
               />
             </div>
@@ -43,6 +82,9 @@ export default function ContactComponent() {
                 className="border-b bg-transparent outline-none ring-transparent"
                 type="tel"
                 id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
                 placeholder="Phone Number"
               />
             </div>
@@ -50,6 +92,9 @@ export default function ContactComponent() {
               <input
                 className="border-b bg-transparent outline-none ring-transparent"
                 id="company"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
                 placeholder="Company Name"
               />
             </div>
@@ -58,11 +103,14 @@ export default function ContactComponent() {
             <input
               className="border-b bg-transparent outline-none ring-transparent"
               id="projectinfo"
+              name="projectInfo"
+              value={formData.projectInfo}
+              onChange={handleChange}
               placeholder="Tell us something about your project."
             />
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex w-full flex-col justify-between space-y-4">
             <p>My budget is around</p>
             <div className="flex justify-between">
               <button
@@ -103,33 +151,14 @@ export default function ContactComponent() {
             </div>
           </div>
 
-          <div className="items-justify flex h-fit gap-4">
-            <div className="flex flex-col gap-4">
-              <p>
-                Alternatively contact{" "}
-                <a href="mailto:business@lullabydesign.com">
-                  business@lullabydesign.com
-                </a>
-              </p>
-              <div className="flex gap-4">
-                <Checkbox id="terms" />
-                <label
-                  htmlFor="terms"
-                  className="text-sm font-medium leading-none underline peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                >
-                  <a href="/terms">Accept terms and conditions</a>
-                </label>
-              </div>
-            </div>
-            <div className="">
-              <button
-                type="submit"
-                className="h-full w-[7rem] rounded-md border bg-white text-black"
-              >
-                Submit
-              </button>
-            </div>
-          </div>
+          {/* Remainder of your form */}
+
+          <button
+            type="submit"
+            className="h-[3rem] w-fit rounded-full border bg-white px-8 text-black"
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>
