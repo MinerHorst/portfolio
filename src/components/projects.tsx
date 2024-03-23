@@ -51,7 +51,10 @@ export default function ProjectComponent() {
 
   return (
     <>
-      <div className="relative grid h-[208vh] grid-cols-3 grid-rows-4 gap-4 px-4 pb-[8vh]">
+      <div
+        id="projects"
+        className="relative grid h-[208vh] grid-cols-3 grid-rows-4 gap-4 px-4 pb-[8vh]"
+      >
         <div
           ref={(ref) => (gridItemsRef.current[0] = ref)}
           className="col-start-3 row-span-1 row-start-1 flex cursor-none flex-col space-y-2 border p-2"

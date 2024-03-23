@@ -2,7 +2,10 @@ import React from "react";
 
 export default function SpecialOffersComponent() {
   return (
-    <div className="relative z-[100] flex h-screen w-screen flex-col items-center justify-center space-y-4 bg-black px-4">
+    <div
+      id="specials"
+      className="relative z-[100] flex h-screen w-screen flex-col items-center justify-center space-y-4 bg-black px-4"
+    >
       <h2 className="sixcaps z-50 inline-flex w-full text-start leading-none text-muted-foreground [font-size:_clamp(2em,8vw,8em)]">
         ONE LAST QUESTION
       </h2>

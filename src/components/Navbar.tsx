@@ -71,21 +71,21 @@ export default function Navbar() {
                     whileHover={{ x: +20 }}
                     className="cursor-pointer"
                   >
-                    Projects
+                    <Link href={"/"}>About</Link>
                   </motion.li>
                   <motion.li
                     initial={{ y: 0 }}
                     whileHover={{ x: +20 }}
                     className="cursor-pointer"
                   >
-                    About
+                    <Link href={"/#projects"}>Projects</Link>
                   </motion.li>
                   <motion.li
                     initial={{ y: 0 }}
                     whileHover={{ x: +20 }}
                     className="cursor-pointer"
                   >
-                    Contact
+                    <Link href={"/#contact"}>Contact</Link>
                   </motion.li>
                 </ul>
               </div>
@@ -97,7 +97,14 @@ export default function Navbar() {
                     whileHover={{ x: +20 }}
                     className="cursor-pointer"
                   >
-                    Non-Profit?
+                    <Link href={"/specials/nonprofit"}>Non Profit?</Link>
+                  </motion.li>
+                  <motion.li
+                    initial={{ y: 0 }}
+                    whileHover={{ x: +20 }}
+                    className="cursor-pointer"
+                  >
+                    <Link href={"/specials/business"}>Small Business?</Link>
                   </motion.li>
                 </ul>
               </div>
@@ -128,7 +135,9 @@ export default function Navbar() {
                     whileHover={{ x: +20 }}
                     className="cursor-pointer"
                   >
-                    Twitter
+                    <a href="https://twitter.com/lullabywebdev" target="_blank">
+                      Twitter
+                    </a>
                   </motion.li>
                 </ul>
               </div>
