@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      cursor: {
+        study: 'url("/public/study-cursor.png")',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

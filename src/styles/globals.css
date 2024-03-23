@@ -230,3 +230,7 @@ img {
 .poppins {
     font-family: poppins;
 }
+
+.viewcase {
+  cursor: url(https://live.staticflickr.com/65535/53606332013_bdbb93f05e_t.jpg), auto;
+}

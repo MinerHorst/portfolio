@@ -1,18 +1,55 @@
 import React, { useState, FormEvent, useRef, MutableRefObject } from "react";
 import emailjs from "@emailjs/browser";
+import { useToast } from "./ui/use-toast";
+import { ToastAction } from "@radix-ui/react-toast";
 
 export const Form = () => {
+  const { toast } = useToast();
   const form = useRef<HTMLFormElement | null>(null);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Getting all input elements within the form
+    const inputs = form.current?.querySelectorAll<HTMLInputElement>("input");
+
+    // Checking if any input field is empty
+    if (inputs) {
+      let isEmpty = false;
+      inputs.forEach((input) => {
+        if (!input.value.trim()) {
+          isEmpty = true;
+        }
+      });
+
+      // If any input field is empty, display an error toast and return
+      if (isEmpty) {
+        toast({
+          title: "Error",
+          description: "Please fill out all fields.",
+        });
+        return;
+      }
+    }
+
     if (form.current) {
       emailjs
         .sendForm("service_4yyd8rc", "template_1g2mtae", form.current, {
           publicKey: "JyPL6wojPntUbcVj6",
         })
+
         .then(
           () => {
-            console.log("SUCCESS!");
+            if (inputs) {
+              inputs.forEach((input) => {
+                input.value = "";
+              });
+            }
+
+            toast({
+              title: "Message sent!",
+              description: "The message has been successfully sent. Thank you!",
+            });
           },
           (error) => {
             console.log("FAILED...");
@@ -45,6 +82,7 @@ export const Form = () => {
                 className="border-b bg-transparent outline-none ring-transparent"
                 id="name"
                 name="name"
+                content="name"
                 placeholder="Full Name"
               />
             </div>

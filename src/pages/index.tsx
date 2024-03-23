@@ -14,6 +14,7 @@ import ContactComponent from "~/components/contact";
 import SpecialOffersComponent from "~/components/specials";
 import ProjectTitle from "~/components/projecttitle";
 import ServiceComponent from "~/components/services";
+import { Toaster } from "~/components/ui/toaster";
 
 export default function Home() {
   const aboutref = useRef(null);
@@ -60,6 +61,7 @@ export default function Home() {
             </m.div>
           </div>
         </m.main>
+        <Toaster />
       </AnimatePresence>
     </>
   );
