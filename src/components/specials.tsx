@@ -12,7 +12,7 @@ export default function SpecialOffersComponent() {
             Non-Profit?
           </div>
           <div className="montserrat w-[80%] text-muted-foreground">
-            If you are a non-profit ask away and maybe I'll create you a
+            If you are a non-profit ask away and maybe I&apos;ll create you a
             stunning{" "}
             <span className="text-white decoration-2 underline-offset-4">
               website for free

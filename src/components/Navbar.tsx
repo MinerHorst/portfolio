@@ -13,7 +13,16 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    controls.start({ rotate: isMenuOpen ? 45 : 0 });
+    const startAnimation = async () => {
+      try {
+        await controls.start({ rotate: isMenuOpen ? 45 : 0 });
+      } catch (error) {
+        // Handle any errors if necessary
+        console.error("Error occurred while starting animation:", error);
+      }
+    };
+
+    startAnimation();
   }, [isMenuOpen, controls]);
 
   return (
