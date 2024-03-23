@@ -5,8 +5,6 @@ export const Form = () => {
   const form = useRef<HTMLFormElement | null>(null);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
     if (form.current) {
       emailjs
         .sendForm("service_4yyd8rc", "template_1g2mtae", form.current, {
@@ -26,7 +24,10 @@ export const Form = () => {
   };
 
   return (
-    <div className="relative z-[100] grid h-fit w-screen bg-black text-white">
+    <div
+      className="relative z-[100] grid h-fit w-screen bg-black text-white"
+      id="contact"
+    >
       <div className="flex h-fit flex-col justify-between space-y-4 px-4">
         <p className="sixcaps w-full leading-none [font-size:_clamp(2em,8vw,8em)]">
           CONTACT

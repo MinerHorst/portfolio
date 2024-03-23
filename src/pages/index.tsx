@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 
 import Navbar from "~/components/Navbar";
 import { Checkbox } from "~/components/ui/checkbox";
-import AboutComponent from "~/components/about";
+import AboutComponent from "~/components/hero";
 import ProjectComponent from "~/components/projects";
 import FillerComponent from "~/components/filler";
 import FooterComponent from "~/components/footer";
