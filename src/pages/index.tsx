@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Luis Keßler - Web Design</title>
+        <title>Lullaby Design - Web Design</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

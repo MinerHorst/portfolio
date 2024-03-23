@@ -5,14 +5,14 @@ export default function AboutComponent() {
     <div className="flex h-fit min-h-screen w-screen flex-col items-center justify-end bg-black text-muted-foreground [font-size:_clamp(2em,5vw,8em)]">
       <div className="poppins hidden px-4 font-light leading-[1rem] md:block md:leading-[2.5rem] lg:leading-[5rem]">
         <div>
-          Hey my name is{" "}
+          Hey we are{" "}
           <span className="text-white">
-            <a href="/about">Luis</a>
+            <a href="/about">Lullaby Design</a>
           </span>
           ,
         </div>
         <div>
-          I&apos;m a Web Developer{" "}
+          A Design Studio{" "}
           <span className="text-white  hover:cursor-pointer">
             <a href="/#contact">ready for hire</a>
           </span>
@@ -20,7 +20,7 @@ export default function AboutComponent() {
         </div>
         <div>with a focus on modern design and user experience.</div>
         <div>
-          I create visually appealing and functional{" "}
+          We create visually appealing and functional{" "}
           <span className="text-white  hover:cursor-pointer">
             <a href="/work">websites</a>
           </span>{" "}

@@ -5,8 +5,8 @@ export default function FooterComponent() {
     <div className="relative z-[100] flex h-screen w-screen flex-col justify-end bg-black">
       <div className="grid h-[40vh] grid-cols-4 border-t p-4">
         <p className="col-span-1 text-lg">
-          <span className="poppins">Luis</span>
-          <span className="playfair italic">Keßler</span>
+          <span className="poppins">Lullaby</span>
+          <span className="playfair italic">Design</span>
         </p>
         <div className="col-span-1 h-full w-full">
           <ul className="poppins flex h-full w-full flex-col justify-between text-lg">
@@ -22,13 +22,13 @@ export default function FooterComponent() {
             <li>+49 163 0813520</li>
             <li className="flex flex-col">
               <span>For business inquiries:</span>
-              <a href="mailto:business@luiskessler.com">
-                business@luiskessler.com
+              <a href="mailto:business@lullabydesign.com">
+                business@lullabydesign.com
               </a>
             </li>
             <li className="flex flex-col">
               <span>For general inquiries:</span>
-              <a href="mailto:hi@luiskessler.com">hi@luiskessler.com</a>
+              <a href="mailto:hi@lullabydesign.com">hi@lullabydesign.com</a>
             </li>
             <li>
               <a href="https://linktr.ee/luiskessler">Linktree</a>

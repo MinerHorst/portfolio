@@ -21,7 +21,7 @@ export default function SpecialOffersComponent() {
             non-profits per year, but that means its all free for you.
           </div>
           <li className="poppins flex flex-col underline">
-            <span>business@luiskessler.com</span>
+            <span>business@lullabydesign.com</span>
           </li>
         </div>
         <div className="space-y-4">
@@ -38,7 +38,7 @@ export default function SpecialOffersComponent() {
             quality goods.
           </div>
           <li className="poppins flex flex-col underline">
-            <span>business@luiskessler.com</span>
+            <span>business@lullabydesign.com</span>
           </li>
         </div>
       </div>

@@ -37,8 +37,8 @@ export default function Navbar() {
           <motion.div className="absolute left-0 top-0 z-[200] flex h-fit w-screen flex-col px-4 pb-4">
             <div className="flex h-[10vh] items-center justify-between">
               <p className="bg-black px-2 text-lg">
-                <span className="poppins">Luis</span>
-                <span className="playfair italic">Keßler</span>
+                <span className="poppins">Lullaby</span>
+                <span className="playfair italic">Design</span>
               </p>
               <p className="hidden md:inline">
                 <span className="text-muted-foreground">Projects, </span>
@@ -154,8 +154,8 @@ export default function Navbar() {
             className="rounded-full bg-black p-2 px-3 text-lg"
             style={{ boxShadow: "0 0 20px 15px rgba(0, 0, 0, 1)" }}
           >
-            <span className="poppins">Luis</span>
-            <span className="playfair italic">Keßler</span>
+            <span className="poppins">Lullaby</span>
+            <span className="playfair italic">Design</span>
           </p>
           <p
             className="hidden bg-black md:inline"

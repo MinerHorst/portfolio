@@ -107,8 +107,8 @@ export default function ContactComponent() {
             <div className="flex flex-col gap-4">
               <p>
                 Alternatively contact{" "}
-                <a href="mailto:business@luiskessler.com">
-                  business@luiskessler.com
+                <a href="mailto:business@lullabydesign.com">
+                  business@lullabydesign.com
                 </a>
               </p>
               <div className="flex gap-4">
