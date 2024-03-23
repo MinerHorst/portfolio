@@ -1,21 +1,18 @@
 import { motion as m } from "framer-motion";
 import {
+  ArrowRight,
   ArrowUpRight,
   ArrowUpRightFromCircle,
   ArrowUpRightFromSquare,
 } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-import cursor from "../../public/study-cursor.png";
 import { useToast } from "./ui/use-toast";
 
 export default function ProjectComponent() {
-  const { toast } = useToast();
-
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
   const [showImage, setShowImage] = useState(false);
-  const cursorRef = useRef<HTMLDivElement>(null); // Explicitly typing the ref
+  const gridItemsRef = useRef<Array<HTMLDivElement | null>>([]);
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
@@ -25,17 +22,24 @@ export default function ProjectComponent() {
 
       setImagePosition({ x, y });
 
-      const cursorElement = cursorRef.current;
-      if (cursorElement) {
-        const { left, top, right, bottom } =
-          cursorElement.getBoundingClientRect();
+      for (let i = 0; i < gridItemsRef.current.length; i++) {
+        const gridItem = gridItemsRef.current[i];
+        if (gridItem) {
+          const { left, top, right, bottom } = gridItem.getBoundingClientRect();
 
-        const x = clientX - left;
-        const y = clientY - top;
-        setShowImage(
-          x >= 0 && y >= 0 && x <= right - left && y <= bottom - top,
-        );
+          if (
+            clientX >= left &&
+            clientX <= right &&
+            clientY >= top &&
+            clientY <= bottom
+          ) {
+            setShowImage(true);
+            return;
+          }
+        }
       }
+
+      setShowImage(false);
     };
 
     document.addEventListener("mousemove", handleMouseMove);
@@ -47,10 +51,10 @@ export default function ProjectComponent() {
 
   return (
     <>
-      <div className="relative grid h-[200vh] grid-cols-3 grid-rows-4 gap-4 px-4">
+      <div className="relative grid h-[208vh] grid-cols-3 grid-rows-4 gap-4 px-4 pb-[8vh]">
         <div
-          ref={cursorRef}
-          className="z-[200] col-start-3 row-span-1 row-start-1 flex cursor-none flex-col space-y-2 border p-2"
+          ref={(ref) => (gridItemsRef.current[0] = ref)}
+          className="col-start-3 row-span-1 row-start-1 flex cursor-none flex-col space-y-2 border p-2"
         >
           <div className="h-full w-full">img</div>
           <div className="flex items-center justify-between">
@@ -58,21 +62,52 @@ export default function ProjectComponent() {
             <ArrowUpRightFromSquare size={16} />
           </div>
         </div>
-        <div className="col-start-2 row-span-1 row-start-2 flex flex-col space-y-2 border"></div>
-        <div className="col-start-3 row-span-1 row-start-3 flex flex-col space-y-2 border"></div>
-        <div className="col-start-2 row-span-1 row-start-4 flex flex-col space-y-2 border"></div>
+        <div
+          ref={(ref) => (gridItemsRef.current[1] = ref)}
+          className="col-start-2 row-span-1 row-start-2 flex cursor-none flex-col space-y-2 border p-2"
+        >
+          <div className="h-full w-full">img</div>
+          <div className="flex items-center justify-between">
+            <p className="cursor-study">Inquirable</p>
+            <ArrowUpRightFromSquare size={16} />
+          </div>
+        </div>
+        <div
+          ref={(ref) => (gridItemsRef.current[2] = ref)}
+          className="col-start-3 row-span-1 row-start-3 flex cursor-none flex-col space-y-2 border p-2"
+        >
+          <div className="h-full w-full">img</div>
+          <div className="flex items-center justify-between">
+            <p className="cursor-study">Inquirable</p>
+            <ArrowUpRightFromSquare size={16} />
+          </div>
+        </div>
+        <div
+          ref={(ref) => (gridItemsRef.current[3] = ref)}
+          className="col-start-2 row-span-1 row-start-4 flex cursor-none flex-col space-y-2 border p-2"
+        >
+          <div className="h-full w-full">img</div>
+          <div className="flex items-center justify-between">
+            <p className="cursor-study">Inquirable</p>
+            <ArrowUpRightFromSquare size={16} />
+          </div>
+        </div>
       </div>
       {showImage && (
         <div
-          className="fixed z-[200]"
+          className="fixed z-[50]"
           style={{
             left: imagePosition.x,
             top: imagePosition.y,
             pointerEvents: "none",
           }}
         >
-          {/* Replace the URL and dimensions with your image */}
-          <Image src={cursor} width={200} height={100} alt="cursor image" />
+          <div className="poppins flex h-[60px] w-[200px] items-center justify-center gap-4 rounded-full bg-white text-black">
+            <p className="text-xl">VIEW CASE</p>
+            <span>
+              <ArrowRight />
+            </span>
+          </div>
         </div>
       )}
     </>
