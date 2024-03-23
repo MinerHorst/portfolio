@@ -1,25 +1,11 @@
-import {
-  ArrowBigDown,
-  ArrowDown,
-  ArrowDownNarrowWide,
-  ArrowRight,
-  Menu,
-} from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
-
+import { useEffect, useState } from "react";
 import Link from "next/link";
-
 import { useRouter } from "next/router";
-
-import { AnimatePresence, animate, motion, useAnimation } from "framer-motion";
+import { AnimatePresence, motion, useAnimation } from "framer-motion";
 
 export default function Navbar() {
   const controls = useAnimation();
-
   const router = useRouter();
-  const routerName = router.pathname;
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuClick = () => {

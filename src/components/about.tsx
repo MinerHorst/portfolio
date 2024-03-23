@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function AboutComponent() {
@@ -7,14 +8,14 @@ export default function AboutComponent() {
         <div>
           Hey we are{" "}
           <span className="text-white">
-            <a href="/about">Lullaby Design</a>
+            <Link href="/about">Lullaby Design</Link>
           </span>
           ,
         </div>
         <div>
           A Design Studio{" "}
           <span className="text-white  hover:cursor-pointer">
-            <a href="/#contact">ready for hire</a>
+            <Link href="/#contact">ready for hire</Link>
           </span>
           ,
         </div>
@@ -22,32 +23,32 @@ export default function AboutComponent() {
         <div>
           We create visually appealing and functional{" "}
           <span className="text-white  hover:cursor-pointer">
-            <a href="/work">websites</a>
+            <Link href="/work">websites</Link>
           </span>{" "}
           that meet your unique needs.
         </div>
         <div className="text-black">What brings you here?</div>
         <div className="text-white hover:cursor-pointer">
-          <a href="/#contact">Let's Talk</a>
+          <Link href="/#contact">Let&apos;s Talk</Link>
         </div>
       </div>
       <div className="poppins px-4 font-normal md:hidden">
         Hey my name is{" "}
         <span>
-          <a href="/about">Luis</a>,
+          <Link href="/about">Luis</Link>,
         </span>
         I&apos;m a Web Developer{" "}
         <span className=" hover:cursor-pointer">
-          <a href="/#contact">ready for hire</a>
+          <Link href="/#contact">ready for hire</Link>
         </span>
         , with a focus on modern design and user experience. I create visually
         appealing and functional{" "}
         <span className=" hover:cursor-pointer">
-          <a href="/work">websites</a>
+          <Link href="/work">websites</Link>
         </span>{" "}
         that meet your unique needs.
         <div className=" hover:cursor-pointer">
-          <a href="/#contact">Let&apos;s Talk</a>
+          <Link href="/#contact">Let&apos;s Talk</Link>
         </div>
       </div>
     </div>

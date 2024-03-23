@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, FormEvent } from "react";
 import { Checkbox } from "./ui/checkbox";
 
 export default function ContactComponent() {
   const [selectedPrice, setSelectedPrice] = useState("");
   const [selectedRecommendation, setSelectedRecommendation] = useState("");
 
-  function handleContactSubmit(e: any) {
+  function handleContactSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     console.log("submitted");
   }
