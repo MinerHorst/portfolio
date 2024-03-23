@@ -10,6 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@formspree/react": "^2.5.1",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@studio-freight/react-lenis": "^0.0.45",

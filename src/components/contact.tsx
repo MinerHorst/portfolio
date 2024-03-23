@@ -1,8 +1,30 @@
-import React, { useState, FormEvent } from "react";
-import { useForm, ValidationError } from "@formspree/react";
+import React, { useState, FormEvent, useRef, MutableRefObject } from "react";
+import emailjs from "@emailjs/browser";
 
-function Form() {
-  const [state, handleSubmit, reset] = useForm("{mzbnaqvp}");
+export const Form = () => {
+  const form = useRef<HTMLFormElement | null>(null);
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (form.current) {
+      emailjs
+        .sendForm("service_4yyd8rc", "template_1g2mtae", form.current, {
+          publicKey: "JyPL6wojPntUbcVj6",
+        })
+        .then(
+          () => {
+            console.log("SUCCESS!");
+          },
+          (error) => {
+            console.log("FAILED...", error.text);
+          },
+        );
+    } else {
+      console.error("Form ref is null");
+    }
+  };
+
   return (
     <div className="relative z-[100] grid h-fit w-screen bg-black text-white">
       <div className="flex h-fit flex-col justify-between space-y-4 px-4">
@@ -10,8 +32,8 @@ function Form() {
           CONTACT
         </p>
         <form
-          action={"https://formspree.io/f/mzbnaqvp"}
-          method="POST"
+          ref={form}
+          onSubmit={sendEmail}
           className="poppins flex h-fit flex-col gap-3 space-y-10"
         >
           <h2>Your contact details and some info about your project</h2>
@@ -24,11 +46,6 @@ function Form() {
                 name="name"
                 placeholder="Full Name"
               />
-              <ValidationError
-                prefix="Name"
-                field="name"
-                errors={state.errors}
-              />
             </div>
             <div className="flex w-full flex-col justify-between">
               <input
@@ -37,11 +54,6 @@ function Form() {
                 id="email"
                 name="email"
                 placeholder="Email Address"
-              />
-              <ValidationError
-                prefix="Email"
-                field="email"
-                errors={state.errors}
               />
             </div>
             <div className="flex w-full flex-col justify-between">
@@ -52,11 +64,6 @@ function Form() {
                 name="phone"
                 placeholder="Phone Number"
               />
-              <ValidationError
-                prefix="Phone"
-                field="phone"
-                errors={state.errors}
-              />
             </div>
             <div className="flex w-full flex-col justify-between">
               <input
@@ -65,24 +72,14 @@ function Form() {
                 name="company"
                 placeholder="Company Name"
               />
-              <ValidationError
-                prefix="Company"
-                field="company"
-                errors={state.errors}
-              />
             </div>
           </div>
           <div className="flex w-full flex-col justify-between">
             <input
               className="border-b bg-transparent outline-none ring-transparent"
               id="projectinfo"
-              name="projectInfo"
+              name="projectinfo"
               placeholder="Tell us something about your project."
-            />
-            <ValidationError
-              prefix="Projectinfo"
-              field="projectinfo"
-              errors={state.errors}
             />
           </div>
           <div className="flex w-full flex-col justify-between space-y-4">
@@ -108,17 +105,11 @@ function Form() {
                 <input type="radio" name="budget" value="Unsure" />
                 Not sure
               </label>
-              <ValidationError
-                prefix="Budget"
-                field="budget"
-                errors={state.errors}
-              />
             </div>
           </div>
 
           <button
             type="submit"
-            disabled={state.submitting}
             className="h-[3rem] w-fit rounded-full border bg-white px-8 text-black"
           >
             Submit
@@ -127,7 +118,7 @@ function Form() {
       </div>
     </div>
   );
-}
+};
 
 export default function ContactComponent() {
   return <Form />;
