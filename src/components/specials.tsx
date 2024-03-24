@@ -4,12 +4,12 @@ export default function SpecialOffersComponent() {
   return (
     <div
       id="specials"
-      className="relative z-[100] flex h-screen w-screen flex-col space-y-4 bg-black px-2 md:items-center md:px-4 lg:justify-center"
+      className="relative z-[100] flex h-screen w-screen flex-col space-y-4 bg-black px-2 pt-[8vh] md:items-center md:px-4 lg:justify-center"
     >
       <h2 className="sixcaps z-50 inline-flex w-full text-start leading-none text-muted-foreground [font-size:_clamp(5em,8vw,8em)]">
         ONE LAST QUESTION
       </h2>
-      <div className="flex h-full flex-col justify-around">
+      <div className="flex h-full flex-col justify-around gap-4 md:flex-row">
         <div className="space-y-4">
           <div className="poppins text-white [font-size:_clamp(2em,5.5vw,8em)]">
             Non-Profit?

@@ -5,7 +5,7 @@ import { Link as ScrollLink } from "react-scroll";
 export default function AboutComponent() {
   return (
     <div className="flex h-fit min-h-screen w-screen flex-col items-center justify-start bg-black pt-[10vh] text-muted-foreground [font-size:_clamp(1.5em,5vw,8em)] md:pt-[10vh] lg:min-h-screen lg:pt-[8vh]">
-      <div className="poppins flex h-full flex-col justify-between px-2 font-light leading-[2rem] md:block md:px-4 md:leading-[3rem] lg:leading-[4rem]">
+      <div className="poppins flex h-full flex-col justify-between px-2 font-light leading-[2rem] md:block md:px-4 md:leading-[3rem] lg:leading-[5rem]">
         <div className="h-full">
           <div>
             Hey we are{" "}

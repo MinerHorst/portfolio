@@ -47,7 +47,7 @@ export default function Home() {
           <div>
             <m.div className="h-full w-screen text-white">
               <AboutComponent />
-              <div className="sticky top-0 z-[50]">
+              <div className="top-0 z-[50] md:sticky">
                 <ProjectTitle />
               </div>
               <ProjectComponent />

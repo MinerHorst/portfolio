@@ -56,14 +56,13 @@ export default function ProjectComponent() {
       >
         <div
           ref={(ref) => (gridItemsRef.current[0] = ref)}
-          className="col-span-full row-span-1 row-start-1 flex w-full cursor-none flex-col space-y-2 border p-2 md:col-start-3"
+          className="col-span-full row-span-1 row-start-1 flex w-full cursor-none flex-col space-y-2 border border-muted-foreground p-2 md:col-start-3"
         >
           <div className="pointer-events-none h-full w-full">
             <iframe
               src="https://player.vimeo.com/video/926809702?badge=0&amp;autopause=0&amp;autoplay=1&amp;controls=0&amp;loop=1&amp;player_id=0&amp;app_id=58479"
               width={"100%"}
               height={"100%"}
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
               title="Inquirable"
             ></iframe>
           </div>
