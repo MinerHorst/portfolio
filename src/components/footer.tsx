@@ -2,13 +2,13 @@ import React from "react";
 
 export default function FooterComponent() {
   return (
-    <div className="relative z-[100] flex h-screen w-screen flex-col justify-end bg-black">
-      <div className="grid h-[40vh] grid-cols-4 border-t p-4">
+    <div className="relative z-[100] flex w-screen flex-col justify-end bg-black md:h-screen">
+      <div className="h-fit px-2 pt-4 md:grid md:h-[40vh] md:grid-cols-4 md:px-4">
         <p className="col-span-1 text-lg">
           <span className="poppins">Lullaby</span>
           <span className="playfair italic">Design</span>
         </p>
-        <div className="col-span-1 h-full w-full">
+        <div className="col-span-1 hidden h-full w-full md:inline">
           <ul className="poppins flex h-full w-full flex-col justify-between text-lg">
             <li>Index</li>
             <li>About</li>
@@ -17,17 +17,21 @@ export default function FooterComponent() {
           </ul>
         </div>
 
-        <div className="col-span-1 col-start-4 h-full w-full">
-          <ul className="poppins flex h-full w-full flex-col justify-between">
+        <div className="flex h-full w-full md:col-span-2 md:col-start-3 md:items-center md:justify-center">
+          <ul className="poppins flex flex-col justify-between space-y-2">
             <li>+49 163 0813520</li>
             <li className="flex flex-col">
-              <span>For business inquiries:</span>
+              <span className="text-muted-foreground">
+                For business inquiries:
+              </span>
               <a href="mailto:business@lullabydesign.com">
                 business@lullabydesign.com
               </a>
             </li>
             <li className="flex flex-col">
-              <span>For general inquiries:</span>
+              <span className="text-muted-foreground">
+                For general inquiries:
+              </span>
               <a href="mailto:hi@lullabydesign.com">hi@lullabydesign.com</a>
             </li>
             <li>

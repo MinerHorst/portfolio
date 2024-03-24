@@ -53,11 +53,11 @@ export default function ProjectComponent() {
     <>
       <div
         id="projects"
-        className="relative grid h-[208vh] grid-cols-3 grid-rows-4 gap-4 px-4 pb-[8vh]"
+        className="relative grid h-[208vh] w-screen gap-4 px-2 py-[8vh] md:grid-cols-3 md:grid-rows-4 md:px-4"
       >
         <div
           ref={(ref) => (gridItemsRef.current[0] = ref)}
-          className="col-start-3 row-span-1 row-start-1 flex cursor-none flex-col space-y-2 border p-2"
+          className="col-span-full row-span-1 row-start-1 flex w-full cursor-none flex-col space-y-2 border p-2 md:col-start-3"
         >
           <div className="h-full w-full">img</div>
           <div className="flex items-center justify-between">
@@ -67,7 +67,7 @@ export default function ProjectComponent() {
         </div>
         <div
           ref={(ref) => (gridItemsRef.current[1] = ref)}
-          className="col-start-2 row-span-1 row-start-2 flex cursor-none flex-col space-y-2 border p-2"
+          className="row-span-1 row-start-2 flex cursor-none flex-col space-y-2 border p-2 md:col-start-2"
         >
           <div className="h-full w-full">img</div>
           <div className="flex items-center justify-between">
@@ -77,7 +77,7 @@ export default function ProjectComponent() {
         </div>
         <div
           ref={(ref) => (gridItemsRef.current[2] = ref)}
-          className="col-start-3 row-span-1 row-start-3 flex cursor-none flex-col space-y-2 border p-2"
+          className="row-span-1 row-start-3 flex cursor-none flex-col space-y-2 border p-2 md:col-start-3"
         >
           <div className="h-full w-full">img</div>
           <div className="flex items-center justify-between">
@@ -87,7 +87,7 @@ export default function ProjectComponent() {
         </div>
         <div
           ref={(ref) => (gridItemsRef.current[3] = ref)}
-          className="col-start-2 row-span-1 row-start-4 flex cursor-none flex-col space-y-2 border p-2"
+          className="row-span-1 row-start-4 flex cursor-none flex-col space-y-2 border p-2 md:col-start-2"
         >
           <div className="h-full w-full">img</div>
           <div className="flex items-center justify-between">

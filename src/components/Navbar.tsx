@@ -25,7 +25,7 @@ export default function Navbar() {
         {isMenuOpen && (
           <motion.div className="absolute left-0 top-0 z-[200] flex h-fit w-screen flex-col px-4 pb-4">
             <div className="flex h-[10vh] items-center justify-between">
-              <p className="bg-black px-2 text-lg">
+              <p className="bg-black text-lg">
                 <span className="poppins">Lullaby</span>
                 <span className="playfair italic">Design</span>
               </p>
