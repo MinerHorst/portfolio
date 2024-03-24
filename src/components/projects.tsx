@@ -22,8 +22,7 @@ export default function ProjectComponent() {
 
       setImagePosition({ x, y });
 
-      for (let i = 0; i < gridItemsRef.current.length; i++) {
-        const gridItem = gridItemsRef.current[i];
+      for (const gridItem of gridItemsRef.current) {
         if (gridItem) {
           const { left, top, right, bottom } = gridItem.getBoundingClientRect();
 
