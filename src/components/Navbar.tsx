@@ -61,7 +61,7 @@ export default function Navbar() {
               animate={{ y: 0 }}
               whileInView={{ y: 0 }}
               transition={{ duration: 0.7 }}
-              className="row-span-1 grid grid-cols-4 "
+              className="row-span-1 grid grid-cols-3 md:grid-cols-4"
             >
               <div className="col-span-1 flex flex-col">
                 <h2 className="font-light underline">Navigation</h2>
@@ -108,7 +108,7 @@ export default function Navbar() {
                   </motion.li>
                 </ul>
               </div>
-              <div className="col-span-1 flex flex-col">
+              <div className="col-span-1 hidden flex-col md:flex">
                 <h2 className="font-light underline">Contact</h2>
                 <ul>
                   <li>
