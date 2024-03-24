@@ -2,8 +2,8 @@ import React from "react";
 
 export default function FooterComponent() {
   return (
-    <div className="relative z-[100] flex w-screen flex-col justify-end bg-black md:h-screen">
-      <div className="h-fit px-2 pt-4 md:grid md:h-[40vh] md:grid-cols-4 md:px-4">
+    <div className="relative z-[100] flex w-screen flex-col justify-end bg-black md:h-fit">
+      <div className="h-fit px-2 pt-4 md:grid md:h-fit md:grid-cols-4 md:px-4">
         <p className="col-span-1 text-lg">
           <span className="poppins">Lullaby</span>
           <span className="playfair italic">Design</span>
@@ -17,8 +17,8 @@ export default function FooterComponent() {
           </ul>
         </div>
 
-        <div className="flex h-full w-full md:col-span-2 md:col-start-3 md:items-center md:justify-center">
-          <ul className="poppins flex flex-col justify-between space-y-2">
+        <div className="flex h-full w-full md:col-span-2 md:col-start-3 md:items-center md:justify-between">
+          <ul className="poppins flex h-full w-full flex-col justify-between space-y-2 border">
             <li>+49 163 0813520</li>
             <li className="flex flex-col">
               <span className="text-muted-foreground">
