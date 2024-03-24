@@ -18,7 +18,7 @@ export default function FooterComponent() {
         </div>
 
         <div className="flex h-full w-full md:col-span-2 md:col-start-3 md:items-center md:justify-between">
-          <ul className="poppins flex h-full w-full flex-col justify-between space-y-2 border">
+          <ul className="poppins flex h-full w-full flex-col justify-between space-y-2">
             <li>+49 163 0813520</li>
             <li className="flex flex-col">
               <span className="text-muted-foreground">
